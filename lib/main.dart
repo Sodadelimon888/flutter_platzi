@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platzi/review_list.dart';
+//importando el archivo description_place
+import 'description_place.dart';
+import 'gradient_background.dart';
+import 'header_appbar.dart';
+import 'platzi_trips.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,29 +17,45 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hola Mundo"),
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.orange,
         ),
-        body: Center(
-          child: Text("Hola Mundo"),
-        ),
-      )
-      //const MyHomePage(title: 'Flutter Demo Home Page'),
+        home: PlatziTrips()
+        //const MyHomePage(title: 'Flutter Demo Home Page'),
+        );
+  }
+
+  //Widget para la imagen de fondo
+  Widget _imagenFondo() {
+    return Image(
+      image: NetworkImage(
+          'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+      height: double.infinity,
+      width: double.infinity,
+      fit: BoxFit.cover,
     );
+  }
+
+  //Widget para el texto del centro
+  Widget _textoCentro() {
+    return Center(
+        child: Container(
+            height: 100,
+            color: Color.fromARGB(255, 98, 99, 101),
+            child: Center(
+              child: Text('Hola',
+                  style: TextStyle(fontSize: 50, color: Colors.white)),
+            )));
   }
 }
 
